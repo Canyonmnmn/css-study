@@ -1,0 +1,89 @@
+.box {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.whiteTotransparent {
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        right: 0;
+        width: 100px;
+        background: linear-gradient(90deg, transparent, white);
+    }
+}
+
+.differentColors {
+    background: linear-gradient(45deg, blue 0%, blue 50%, white 50%, white 100%);
+}
+
+.stackingGradients {
+    background: linear-gradient(45deg, transparent 0, skyblue 25px),
+        linear-gradient(-45deg, transparent 0, skyblue 25px),
+        linear-gradient(135deg, transparent 0, skyblue 25px),
+        linear-gradient(-135deg, transparent 0, skyblue 25px);
+    background-size: 50% 50%;
+    background-position: bottom left, bottom right, top left, top right;
+    background-repeat: no-repeat;
+}
+
+.repeatGradients {
+    background:
+        repeating-linear-gradient(45deg,
+            #f06a0e,
+            #f06a0e 11px,
+            transparent 11px,
+            transparent 20px);
+}
+
+.eliminateAliasing {
+    background: radial-gradient(#9c27b0 0%, #9c27b0 47%, #ffeb3b 47.3%, #ffeb3b 100%);
+}
+
+.wave {
+    background-color: pink;
+
+    &::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: -5px;
+        background-repeat: repeat-y;
+        width: 10px;
+        background-size: 20px 20px;
+        background-image: radial-gradient(circle at 15px 10px, transparent 12px, #fff 13px, #fff 20px);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        top: 0;
+        right: -10px;
+        background-repeat: repeat-y;
+        width: 15px;
+        background-size: 20px 20px;
+        background-image: radial-gradient(circle at 0px 10px, #fff 12px, transparent 13px, transparent 20px);
+    }
+
+
+}
+
+.textwave {
+    background: radial-gradient(circle at 10px -7px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x,
+        radial-gradient(circle at 10px 27px, transparent 8px, currentColor 8px, currentColor 9px, transparent 9px) repeat-x;
+    background-size: 20px 20px;
+    background-position: -5px calc(100% + 18px), 5px calc(100% - 2px);
+    padding: 10px 0;
+}
+
+.conic {
+    background: conic-gradient(from 270deg at 50px 50px, deeppink 0%, deeppink 90deg, blue 90deg, blue 360deg);
+    background-position: -25px -25px;
+    // background-repeat: no-repeat;
+}
